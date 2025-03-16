@@ -1,0 +1,11 @@
+Para conseguir executar o programa clicker.py, você precisará instalar o PYTHON (usei o Python 3.13.2) e o VSCODE, ambos podem ser encontrados para download no google.
+
+Após instalar os mesmos, você precisará instalar as seguintes bibliotecas diretamente no prompt CMD do windows. 
+Digite os seguintes comandos para a instalação:
+
+pip install pynput
+
+pip install pyautogui
+
+Feito isso execute o programa clicker.py ou copie e crie em um novo projeto python que você pode criaar no VSCODE.
+Depois clique em Run Python File in Dedicated Terminal para que o VSCODE execute o programa.
