@@ -20,8 +20,8 @@ TOGGLE_KEY_MULTI = KeyCode(char="q")
 clicking = False
 multi = False
 mouse = Controller()
-tf = 0.05
-ti = 0.05
+tf = 0.2
+ti = 0.2
 
 def clicker():
     while True:
