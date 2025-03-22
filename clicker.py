@@ -8,15 +8,15 @@ from pynput.keyboard import Listener, KeyCode
 #pip install pyautogui
 
 print("\nWelcome to Autoclicker Bot!")
-print("\nTo activate the Autoclicker press = key")
-print("To increase the time between clicks press [ key")
-print("To reduce the time between clicks press ] key")
-print("To activate multi point click press ' key\n")
+print("\nTo activate the Autoclicker press - key")
+print("To increase the time between clicks press w key")
+print("To reduce the time between clicks press s key")
+print("To activate multi point click press q key\n")
 
-TOGGLE_KEY = KeyCode(char="=")
-TOGGLE_KEY_UP = KeyCode(char="[") 
-TOGGLE_KEY_DOWN = KeyCode(char="]")
-TOGGLE_KEY_MULTI = KeyCode(char="'")
+TOGGLE_KEY = KeyCode(char="-")
+TOGGLE_KEY_UP = KeyCode(char="w") 
+TOGGLE_KEY_DOWN = KeyCode(char="s")
+TOGGLE_KEY_MULTI = KeyCode(char="q")
 clicking = False
 multi = False
 mouse = Controller()
@@ -30,16 +30,21 @@ def clicker():
             mouse.click(Button.left, 1)
             if multi: # Se o modo multi estiver ativado aplica clicks em pontos aleatórios dentro de uma certa região onde o autoclick foi ativado apertando "="
                 pyautogui.moveTo(currentMouseX+(40+randrange(10)), currentMouseY+(randrange(50)))
-                time.sleep(0.001) 
+                time.sleep(0.2+0.01*randrange(1)) 
                 mouse.click(Button.left, 1)
                 pyautogui.moveTo(currentMouseX-(40+randrange(10)), currentMouseY+(randrange(50)))
-                time.sleep(0.001) 
+                time.sleep(0.2+0.01*randrange(1))  
                 mouse.click(Button.left, 1)
                 pyautogui.moveTo(currentMouseX+(80+randrange(10)), currentMouseY+(randrange(50)))         
                 mouse.click(Button.left, 1)
+                time.sleep(0.2+0.01*randrange(1)) 
                 pyautogui.moveTo(currentMouseX-(80+randrange(10)), currentMouseY+(randrange(50))) 
 
-            time.sleep(ti) 
+            time.sleep(ti+0.002*randrange(1)) 
+            count = count + 1
+            if count == 30:
+                count = 0
+                time.sleep(1)
         
 def toggle_event(key):
     if key == TOGGLE_KEY: # Ativa o autoclick ao apertar TOGGLE_KEY "="
